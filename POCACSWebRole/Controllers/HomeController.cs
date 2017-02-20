@@ -23,7 +23,15 @@ namespace POCACSWebRole.Controllers {
         }
 
         public ActionResult NewPage() {
-            ViewBag.Message = "New Page Title.";
+            ViewBag.Message = "Verificando Valores dos Controlers";
+
+            var controller = RouteData.Values["controller"];
+            var page = RouteData.Values["action"];
+            var id = RouteData.Values["id"];
+
+            var msg = String.Format("Controler: {0} Page: {1} ID: {2}", controller, page, id);
+
+            ViewBag.Message = msg;
 
             return View();
         }
